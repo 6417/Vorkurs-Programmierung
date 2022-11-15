@@ -1,6 +1,6 @@
 public class GameHandler {
-  int sizeField;
-  
+  private int sizeField;
+  private int counter = 0;
   private int[][] field = {{0, 0, 0}, {0, 0, 0}, {0, 0, 0}};
   private EventHandler event;
   
@@ -11,16 +11,20 @@ public class GameHandler {
   
   public void update() {
     int[] step = this.event.checkEvents();
-    if (step != new int[]{-1, -1}) {
+    if (step[0] != -1) {
       if (this.field[step[0]][step[1]] == 0) {
-        this.drawCircle(step);
+        if (counter%2 == 0) {
+          this.drawCircle(step);
+        } else {
+          this.drawCross(step);
+        }
       }
     }
   }
   
   private void drawCircle(int[] pos) {
     fill(0);
-    circle(100 + 200 * pos[0], 100 + 200 * pos[1], 150);
+    circle(this.sizeField/6 + this.sizeField/3 * pos[0], this.sizeField/6 + this.sizeField/3 * pos[1], this.sizeField/4);
   }
   
   private void drawCross(int[] pos) {
@@ -36,5 +40,10 @@ public class GameHandler {
     line(50, 175, 25, 150);
     line(25, 150, 75, 100);
     line(75, 100, 25, 50);
+    /*for(int i = 0; i < 4; i++) {
+      triangle(25, 50, 37.5, 37.5, 
+    }  */
   }
+  
+  private boolean checkWinner() {return true;}
 }
