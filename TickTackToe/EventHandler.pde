@@ -1,11 +1,13 @@
 public class EventHandler {
   int sizeField;
+  float[] sizesOfReplay;
   
-  public EventHandler(int sizeField) {
+  public EventHandler(int sizeField, float[] sizesOfReplay) {
     this.sizeField = sizeField;
+    this.sizesOfReplay = sizesOfReplay;
   }
   
-  public int[] checkEvents() {
+  public int[] checkGameEvents() {
     int[] returnList;
     
     if (mousePressed) {
@@ -15,5 +17,14 @@ public class EventHandler {
       returnList = new int[]{-1, -1};
       return returnList;
     }
+  }
+  
+  public boolean checkFinishEvents() {
+    if (mousePressed) {
+      if (mouseX > this.sizesOfReplay[0] && mouseX < this.sizesOfReplay[0] + this.sizesOfReplay[2] && mouseY > this.sizesOfReplay[1] && mouseY < this.sizesOfReplay[1] + this.sizesOfReplay[3]) {
+        return true;
+      }
+    }
+    return false;
   }
 }
