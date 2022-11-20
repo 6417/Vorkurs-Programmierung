@@ -67,22 +67,17 @@ public class GameHandler {
   }
   
   private void drawCircle(int[] pos) {
+    fill(255);
     circle(this.sizeField/6 + this.sizeField/3 * pos[0], this.sizeField/6 + this.sizeField/3 * pos[1], this.sizeField/4);
   }
   
   private void drawCross(int[] pos) {
-    line(this.sizeField/24 + pos[0]*this.sizeField/3, this.sizeField/12 + pos[1]*this.sizeField/3, this.sizeField/12 + pos[0]*this.sizeField/3, this.sizeField/24 + pos[1]*this.sizeField/3);
-    line(this.sizeField/12 + pos[0]*this.sizeField/3, this.sizeField/24 + pos[1]*this.sizeField/3, this.sizeField/6 + pos[0]*this.sizeField/3, this.sizeField/8 + pos[1]*this.sizeField/3);
-    line(this.sizeField/6 + pos[0]*this.sizeField/3, this.sizeField/8 + pos[1]*this.sizeField/3, this.sizeField/4 + pos[0]*this.sizeField/3, this.sizeField/24 + pos[1]*this.sizeField/3);
-    line(this.sizeField/4 + pos[0]*this.sizeField/3, this.sizeField/24 + pos[1]*this.sizeField/3, 7*this.sizeField/24 + pos[0]*this.sizeField/3, this.sizeField/12 + pos[1]*this.sizeField/3);
-    line(7*this.sizeField/24 + pos[0]*this.sizeField/3, this.sizeField/12 + pos[1]*this.sizeField/3, 5*this.sizeField/24 + pos[0]*this.sizeField/3, this.sizeField/6 + pos[1]*this.sizeField/3);
-    line(5*this.sizeField/24 + pos[0]*this.sizeField/3, this.sizeField/6 + pos[1]*this.sizeField/3, 7*this.sizeField/24 + pos[0]*this.sizeField/3, this.sizeField/4 + pos[1]*this.sizeField/3);
-    line(7*this.sizeField/24 + pos[0]*this.sizeField/3, this.sizeField/4 + pos[1]*this.sizeField/3, this.sizeField/4 + pos[0]*this.sizeField/3, 7*this.sizeField/24 + pos[1]*this.sizeField/3);
-    line(this.sizeField/4 + pos[0]*this.sizeField/3, 7*this.sizeField/24 + pos[1]*this.sizeField/3, this.sizeField/6 + pos[0]*this.sizeField/3, 5*this.sizeField/24 + pos[1]*this.sizeField/3);
-    line(this.sizeField/6 + pos[0]*this.sizeField/3, 5*this.sizeField/24 + pos[1]*this.sizeField/3, this.sizeField/12 + pos[0]*this.sizeField/3, 7*this.sizeField/24 + pos[1]*this.sizeField/3);
-    line(this.sizeField/12 + pos[0]*this.sizeField/3, 7*this.sizeField/24 + pos[1]*this.sizeField/3, this.sizeField/24 + pos[0]*this.sizeField/3, this.sizeField/4 + pos[1]*this.sizeField/3);
-    line(this.sizeField/24 + pos[0]*this.sizeField/3, this.sizeField/4 + pos[1]*this.sizeField/3, this.sizeField/8 + pos[0]*this.sizeField/3, this.sizeField/6 + pos[1]*this.sizeField/3);
-    line(this.sizeField/8 + pos[0]*this.sizeField/3, this.sizeField/6 + pos[1]*this.sizeField/3, this.sizeField/24 + pos[0]*this.sizeField/3, this.sizeField/12 + pos[1]*this.sizeField/3);
+    strokeWeight(sqrt(2) * this.sizeField/24);
+    strokeCap(ROUND);
+    line(this.sizeField/16 + pos[0]*this.sizeField/3, this.sizeField/16 + pos[1]*this.sizeField/3, 13*this.sizeField/48 + pos[0]*this.sizeField/3, 13*this.sizeField/48 + pos[1]*this.sizeField/3);
+    line(this.sizeField/16 + pos[0]*this.sizeField/3, 13*this.sizeField/48 + pos[1]*this.sizeField/3, 13*this.sizeField/48 + pos[0]*this.sizeField/3, this.sizeField/16 + pos[1]*this.sizeField/3);
+    strokeWeight(1);
+    strokeCap(SQUARE);
   }
   
   private int checkWinner() {
@@ -121,6 +116,7 @@ public class GameHandler {
   
   private void finishGame(String message) {
    stroke(0);
+   fill(0);
    rect(0, 0, this.sizeField, this.sizeField);
    stroke(255);
    rect(this.sizesOfReplay[0], this.sizesOfReplay[1], this.sizesOfReplay[2], this.sizesOfReplay[3], this.sizeField/120, this.sizeField/120, this.sizeField/120, this.sizeField/120);
