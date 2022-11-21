@@ -23,25 +23,25 @@ public class GameHandler {
   }
   
   public void update() {
-    if (waitForPlay) {
-      if (waitCounter > 30) {
-        waitForPlay = false;
-        waitCounter = 0;
+    if (this.waitForPlay) {
+      if (this.waitCounter > 30) {
+        this.waitForPlay = false;
+        this.waitCounter = 0;
       } else {
-        waitCounter += 1;
+        this.waitCounter += 1;
       }
-    } else if (!gameOver) {
+    } else if (!this.gameOver) {
       int[] step = this.event.checkGameEvents();
       if (step[0] != -1) {
         if (this.field[step[0]][step[1]] == 0) {
-          if (counter%2 == 0) {
+          if (this.counter%2 == 0) {
             this.drawCircle(step);
             this.field[step[0]][step[1]] = 1;
-            counter += 1;
+            this.counter += 1;
           } else {
             this.drawCross(step);
             this.field[step[0]][step[1]] = 4;
-            counter += 1;
+            this.counter += 1;
           }
           
           int solution = checkWinner();
