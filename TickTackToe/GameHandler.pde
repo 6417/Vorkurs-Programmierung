@@ -1,13 +1,16 @@
 public class GameHandler {
+  //Spiel-Variabeln
   private int sizeField;
   private int counter = 0;
   private int[][] field;
   private EventHandler event;
   private boolean gameOver = false;
   
-  private float[] sizesOfReplay;
-  private float replaySize;
+  //Weiterspielen Variabeln
+  private float[] sizesOfReplay; //Standort und Dimensionen des Knopfes "Replay"
+  private float replaySize; //Grösse der Schrift "Replay"
   
+  //Spielerlebniss verbesserer Variabeln
   private boolean waitForPlay = false;
   private int waitCounter = 0;
   
