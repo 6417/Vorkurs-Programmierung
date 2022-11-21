@@ -75,6 +75,7 @@ public class GameHandler {
   }
   
   private void drawCross(int[] pos) {
+    stroke(255);
     strokeWeight(sqrt(2) * this.sizeField/24);
     strokeCap(ROUND);
     line(this.sizeField/16 + pos[0]*this.sizeField/3, this.sizeField/16 + pos[1]*this.sizeField/3, 13*this.sizeField/48 + pos[0]*this.sizeField/3, 13*this.sizeField/48 + pos[1]*this.sizeField/3);
@@ -84,6 +85,12 @@ public class GameHandler {
   }
   
   private int checkWinner() {
+    /*
+    Gibt -1 zurück, wenn man noch weiter spielen kann
+    Gibt 0 zurück, wenn Kreis gewonnen hat
+    Gibt 1 zurück, wenn Kreuz gewonnen hat
+    Gibt 2 zurück, wenn es Unentschieden ist
+    */
     int arraySum;
 
     for (int i = 0; i < 3; i++) {
@@ -144,9 +151,9 @@ public class GameHandler {
     }
   }
  
-  private int sumOfArray(int[] test) {
+  private int sumOfArray(int[] array) {
     int sum = 0; 
-    for(int i: test) {
+    for(int i: array) {
       sum += i;
     } 
     return sum;
