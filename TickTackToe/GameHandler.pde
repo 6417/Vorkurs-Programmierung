@@ -49,13 +49,13 @@ public class GameHandler {
     int arraySum;
 
     for (int i = 0; i < 3; i++) {
-      arraySum = sumOfArray(this.field[i]);
+      arraySum = this.sumOfArray(this.field[i]);
       if (arraySum == 12) {
           return 1;
       } else if (arraySum == 3) {
         return 0;
       }
-      arraySum = sumOfArray(new int[] {this.field[0][i], this.field[1][i], this.field[2][i]});
+      arraySum = this.sumOfArray(new int[] {this.field[0][i], this.field[1][i], this.field[2][i]});
       if (arraySum == 12) {
         return 1;
       } else if (arraySum == 3) {
@@ -64,7 +64,7 @@ public class GameHandler {
     }
 
     for (int i = 0; i < 2; i++) {
-      arraySum = sumOfArray(new int[] {this.field[0][2*i], this.field[1][1], this.field[2][-2*i+2]});
+      arraySum = this.sumOfArray(new int[] {this.field[0][2*i], this.field[1][1], this.field[2][-2*i+2]});
       if (arraySum == 12) {
         return 1;
       } else if (arraySum == 3) {
@@ -101,8 +101,8 @@ public class GameHandler {
     rect(0, 0, this.sizeField, this.sizeField);
     stroke(255);
     for(int i = 1; i < 3; i++) {
-      line(sizeField/3 * i, 0, sizeField/3 * i, sizeField);
-      line(0, sizeField/3 * i, sizeField, sizeField/3 * i);
+      line(this.sizeField/3 * i, 0, this.sizeField/3 * i, this.sizeField);
+      line(0, this.sizeField/3 * i, this.sizeField, this.sizeField/3 * i);
     }
   }
  
