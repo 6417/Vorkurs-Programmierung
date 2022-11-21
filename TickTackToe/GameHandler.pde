@@ -94,13 +94,13 @@ public class GameHandler {
     int arraySum;
 
     for (int i = 0; i < 3; i++) {
-      arraySum = sumOfArray(this.field[i]);
+      arraySum = this.sumOfArray(this.field[i]);
       if (arraySum == 12) {
           return 1;
       } else if (arraySum == 3) {
         return 0;
       }
-      arraySum = sumOfArray(new int[] {this.field[0][i], this.field[1][i], this.field[2][i]});
+      arraySum = this.sumOfArray(new int[] {this.field[0][i], this.field[1][i], this.field[2][i]});
       if (arraySum == 12) {
         return 1;
       } else if (arraySum == 3) {
@@ -109,7 +109,7 @@ public class GameHandler {
     }
 
     for (int i = 0; i < 2; i++) {
-      arraySum = sumOfArray(new int[] {this.field[0][2*i], this.field[1][1], this.field[2][-2*i+2]});
+      arraySum = this.sumOfArray(new int[] {this.field[0][2*i], this.field[1][1], this.field[2][-2*i+2]});
       if (arraySum == 12) {
         return 1;
       } else if (arraySum == 3) {
